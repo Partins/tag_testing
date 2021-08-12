@@ -1,7 +1,10 @@
 <launch>
 <!-- Apriltags -->
 
-  <include file="$(find apriltag_ros)/launch/continuous_detection.launch" />
+  <include file="$(find apriltag_ros)/launch/continuous_detection.launch">
+  <arg name="camera_name" value="/camera/color"/>
+  <arg name="image_topic" value="image_raw" />
+  </include>
   <include file="$(find realsense2_camera)/launch/rs_camera.launch" />
 
    <node pkg="rosbag" type="record" name="rosbag_record_cam"
