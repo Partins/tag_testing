@@ -1,0 +1,9 @@
+<launch>
+<!-- Apriltags -->
+
+  <include file="$(find apriltag_ros)/launch/continuous_detection.launch" />
+  <include file="$(find realsense2_camera)/launch/rs_camera.launch" />
+
+   <node pkg="rosbag" type="record" name="rosbag_record_cam"
+       args="-o $(find tag_testing)/bags/ /camera/color/image_raw /camera/color/camera_info /tag_detections"/>
+</launch>
